@@ -10,6 +10,8 @@
 
 User.destroy_all
 
+
+
 u = User.new([{ firstname: "Sophie",
                 lastname: "Leroux",
                 email: "sophie.leroux@email.com",
