@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <div class="navbar border-bottom px-20">
+      <%= link_to "LOGO", root_path %>
+      <div class="action-navbar">
+        <%= link_to "Mets en ligne ton taudis !!!", root_path%>
+        <%= link_to "Profil", root_path %>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
