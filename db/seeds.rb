@@ -10,12 +10,31 @@
 
 User.destroy_all
 
-users = [
-  User.new(firstname: "Emma", lastname: "Dupont", email: "emma.dupont@email.com", phone: "555-1234"),
-  User.new(firstname: "Alexandre", lastname: "Lambert", email: "alex.lambert@email.com", phone: "555-5678"),
-  User.new(firstname: "Laura", lastname: "Martin", email: "laura.martin@email.com", phone: "555-9876"),
-  User.new(firstname: "Antoine", lastname: "Moreau", email: "antoine.moreau@email.com", phone: "555-4321"),
-  User.new(firstname: "Sophie", lastname: "Leroux", email: "sophie.leroux@email.com", phone: "555-8765")
-]
 
-users.save!(validates: false)
+
+u = User.new([{ firstname: "Sophie",
+                lastname: "Leroux",
+                email: "sophie.leroux@email.com",
+                phone: "555-8765" },
+              { firstname: "Antoine",
+                lastname: "Moreau",
+                email: "antoine.moreau@email.com",
+                phone: "555-4321" },
+              { firstname: "Laura",
+                lastname: "Martin",
+                email: "laura.martin@email.com",
+                phone: "555-9876" },
+              { firstname: "Laura",
+                lastname: "Martin",
+                email: "laura.martin@email.com",
+                phone: "555-9876" },
+              { firstname: "Alexandre",
+                lastname: "Lambert",
+                email: "alex.lambert@email.com",
+                phone: "555-5678" },
+              { firstname: "Emma",
+                lastname: "Dupont",
+                email: "emma.dupont@email.com",
+                phone: "555-1234" }])
+
+u.save!(validates: false)
