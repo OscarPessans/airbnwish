@@ -1,0 +1,9 @@
+<h1>this is your profil</h1>
+<%=  @user.email %>
+
+<h1>this is your reservations</h1>
+
+<% @user.bookings.each do |booking| %>
+<p>id de la resa: <%= booking.flat_id %></p>
+<br>
+<% end %>
