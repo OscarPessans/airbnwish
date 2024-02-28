@@ -1,0 +1,30 @@
+.cards-show {
+  width: 450px;
+  border: solid;
+  border-radius: 32px;
+  padding: 15px;
+
+}
+
+.img_show {
+  align-items: center
+}
+
+.banner-show {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  img {
+    width: 500px;
+    margin-top: 50px,
+  }
+}
+.details-show {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.retro-button {
+  margin-top: 80px;
+}

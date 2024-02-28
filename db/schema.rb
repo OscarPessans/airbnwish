@@ -26,9 +26,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_094219) do
   end
 
   create_table "flats", force: :cascade do |t|
-    t.text "description"
+    t.text "description"db/schema.rb
     t.string "address"
-    t.float "price"
+    t.float "price"db/schema.rb
     t.integer "size"
     t.boolean "available"
     t.integer "rating"

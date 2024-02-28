@@ -1,13 +1,38 @@
-<h1>Show</h1>
 
-<%= @flat.description %>
-<%= @flat.address %>
-<%= @flat.price %>
-<%= @flat.size %>
-<%= @flat.available %>
-<%= @flat.rating %>
-
-
-<%= link_to "louer moi", new_flat_booking_path(@flat)%>
-<br>
-<%= link_to "retourner aux annonces", flats_path%>
+<div class= "container">
+  <div class="banner-show">
+    <h1><%=@flat.title%></h1>
+    <%= image_tag("image_airbnwish/Alma.png", class: "img_show", alt: "Description de l'image") %>
+  </div>
+  <div class="details-show">
+  <div class="informations-show" >
+    <div class="p-2 w-100"><%= @flat.description %></div>
+    <h4>Hôte : <%= @flat.owner.firstname%> <%= @flat.owner.firstname%></h4>
+    <br>
+    <h4>Adresse : <%= @flat.address %></h4>
+    <%= button_to "retourner aux annonces", flats_path, class:"retro-button"%>
+  </div>
+    <div class="p-2 flex-shrink-1">
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card-body cards-show">
+              <h5 class="card-title"><%= @flat.price %>€</h5>
+              <p class="card-text mt-3">
+                <i class="fa-solid fa-person"></i>
+                <%= @flat.size %>
+              </p>
+              <p class="card-text">
+                <i class="fa-solid fa-star"></i>
+                <%= @flat.rating  %>
+              </p>
+              <%= simple_form_for [@flat, @booking] do |f| %>
+              <%= f.input :start_date %>
+              <%= f.input :end_date %>
+              <%= f.submit class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
