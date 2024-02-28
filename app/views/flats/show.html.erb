@@ -1,6 +1,6 @@
-<div class="container mt-2">
-  <h1> <%= @flat.title %> </h1>
-  <div class="row">
+<div class= "container">
+  <div class="banner-show">
+    <h1><%=@flat.title%></h1>
     <ul>
     <% @flat.photos.each do |photo| %>
       <li>
@@ -8,21 +8,36 @@
       </li>
     <% end %>
    </ul>
-   <div class="spec">
-    <%= @flat.description %>
-    <ul>
-    <li><%= @flat.address %></li>
-    <li><%= @flat.price %></li>
-    <li><%= @flat.size %></li>
-    <li><%= @flat.available %></li>
-    <li><%= @flat.rating %></li>
-    </ul>
-   </div>
   </div>
-  <div class="row">
-      <%= link_to "louez moi", new_flat_booking_path(@flat), class: "retro-button"%>
-      <br>
-      <%= link_to "retourner aux annonces", flats_path, class: "retro-button"%>
+  <div class="details-show">
+  <div class="informations-show" >
+    <div class="p-2 w-100"><%= @flat.description %></div>
+    <h4>Hôte : <%= @flat.owner.firstname%> <%= @flat.owner.firstname%></h4>
+    <br>
+    <h4>Adresse : <%= @flat.address %></h4>
+    <%= button_to "retourner aux annonces", flats_path, class:"retro-button"%>
   </div>
+    <div class="p-2 flex-shrink-1">
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card-body cards-show">
+              <h5 class="card-title"><%= @flat.price %>€</h5>
+              <p class="card-text mt-3">
+                <i class="fa-solid fa-person"></i>
+                <%= @flat.size %>
+              </p>
+              <p class="card-text">
+                <i class="fa-solid fa-star"></i>
+                <%= @flat.rating  %>
+              </p>
+              <%= simple_form_for [@flat, @booking] do |f| %>
+              <%= f.input :start_date %>
+              <%= f.input :end_date %>
+              <%= f.submit class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
-
