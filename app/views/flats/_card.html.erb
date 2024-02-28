@@ -1,9 +1,11 @@
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="card m-1" style="width: 18rem;">
+  <%= image_tag(flat.photos.first) %>
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <%= link_to "voir l'annonce", flat_path(flat) %>
-    <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+    <h5 class="card-title"> <%= flat.title %> </h5>
+    <p class="card-text"><%= flat.address %></p>
+    <p class="card-text"><strong><%= flat.price %>€</strong> /nuit</p>
+    <div class="text-center show_button">
+      <%= link_to "voir l'annonce", flat_path(flat), class: "retro-button" %>
+    </div>
   </div>
 </div>

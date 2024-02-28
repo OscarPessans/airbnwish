@@ -1,21 +1,47 @@
-<h1>this is your profil</h1>
-<%=  @user.email %>
+<div class="profile_page container">
+  <h1 class="mt-3 mb-5 container text-center w-50">Ton profil</h1>
+  <div class="container w-50">
+  <div class="profile_image mt-4 mb-4">
+    <%= image_tag "user/portrait_femme", class: "avatar w-100", alt: "avatar"%>
+  </div>
+    <div class="infos-user mt-4 mb-4">
+      <ul class="list-profile w-100 p-0">
+        <li><%= @user.firstname %></li>
+        <li><%= @user.lastname %></li>
+        <li><%= @user.email %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="mt-3 appart_list">
+    <h1>Mes appartements en ligne</h1>
+    <ul>
+      <% @user.flats.each do |flat| %>
+        <li>
+          <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= flat.title %></h2>
+              <p><strong><%= flat.price %></strong>€ - <%= flat.size %> personnes - Moyenne des avis :<%= flat.rating %>/5</p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-<h1>mes appartement</h1>
-<ul>
-  <% @user.flats.each do |flat| %>
-  <li>
-      <%= flat.description %>
-  </li>
-  <% end %>
-</ul>
-
-<h1>this is your reservations</h1>
-<ul>
-  <% @user.bookings.each do |booking| %>
-  <li>
-      <p>id de la resa: <%= booking.flat_id %></p>
-      <p> description: <%= booking.flat.description %></p>
-  </li>
-  <% end %>
-</ul>
+  <h1>Mes réservations</h1>
+  <div class="bookings_list">
+    <ul>
+      <% @user.bookings.each do |booking| %>
+        <li>
+          <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= booking.flat.title %></h2>
+              <p>Réservation n°<strong><%= booking.flat_id %></strong></p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>

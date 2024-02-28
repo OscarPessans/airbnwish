@@ -1,8 +1,13 @@
-
 <div class= "container">
   <div class="banner-show">
     <h1><%=@flat.title%></h1>
-    <%= image_tag("image_airbnwish/Alma.png", class: "img_show", alt: "Description de l'image") %>
+    <ul>
+    <% @flat.photos.each do |photo| %>
+      <li>
+        <%= image_tag(photo, style: 'height:200px;width:auto;')%>
+      </li>
+    <% end %>
+   </ul>
   </div>
   <div class="details-show">
   <div class="informations-show" >
