@@ -1,9 +1,21 @@
 <h1>this is your profil</h1>
 <%=  @user.email %>
 
-<h1>this is your reservations</h1>
+<h1>mes appartement</h1>
+<ul>
+  <% @user.flats.each do |flat| %>
+  <li>
+      <%= flat.description %>
+  </li>
+  <% end %>
+</ul>
 
-<% @user.bookings.each do |booking| %>
-<p>id de la resa: <%= booking.flat_id %></p>
-<br>
-<% end %>
+<h1>this is your reservations</h1>
+<ul>
+  <% @user.bookings.each do |booking| %>
+  <li>
+      <p>id de la resa: <%= booking.flat_id %></p>
+      <p> description: <%= booking.flat.description %></p>
+  </li>
+  <% end %>
+</ul>

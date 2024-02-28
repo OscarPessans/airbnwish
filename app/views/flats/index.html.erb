@@ -1,5 +1,13 @@
 <h1>index flats</h1>
-<%= render "card" %>
+
+<ul>
+  <% @flats.each do |flat| %>
+    <li>
+      <%= render "card", flat: flat %>
+    </li>
+  <% end %>
+</ul>
+
 
 <%# <div class="container">
   <h1>Liste des Appartements</h1>

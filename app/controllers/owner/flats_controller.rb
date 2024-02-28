@@ -7,9 +7,8 @@ class Owner::FlatsController < ApplicationController
   def create
     @flat = Flat.new(flat_params)
     @flat.owner = current_user
-    @flat.save!
     if @flat.save
-      redirect_to flats_path
+      redirect_to profil_path(current_user.id)
     else
       render :new, status: :unprocessable_entity
     end
