@@ -4,7 +4,8 @@
     <h5 class="card-title"> <%= flat.title %> </h5>
     <p class="card-text"><%= flat.address %></p>
     <p class="card-text"><strong><%= flat.price %>€</strong> /nuit</p>
-    <%= link_to "voir l'annonce", flat_path(flat), class: "retro-button" %>
-    <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+    <div class="text-center show_button">
+      <%= link_to "voir l'annonce", flat_path(flat), class: "retro-button" %>
+    </div>
   </div>
 </div>
