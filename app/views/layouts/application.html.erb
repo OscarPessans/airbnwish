@@ -18,7 +18,7 @@
           <%= link_to "Mets en ligne ton taudis !!!", new_owner_flat_path%>
           <%= link_to "Profil", profil_path(current_user.id) %>
         <% else %>
-          <%= link_to "Sign in", flats_path %>
+          <%= link_to "Sign in", new_user_session_path %>
         <% end %>
       </div>
     </div>
