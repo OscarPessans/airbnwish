@@ -14,8 +14,12 @@
     <div class="navbar border-bottom px-20">
       <%= link_to "LOGO", root_path %>
       <div class="action-navbar">
-        <%= link_to "Mets en ligne ton taudis !!!", new_owner_flat_path%>
-        <%= link_to "Profil", profil_path(current_user.id) %>
+        <% if user_signed_in? %>
+          <%= link_to "Mets en ligne ton taudis !!!", new_owner_flat_path%>
+          <%= link_to "Profil", profil_path(current_user.id) %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
       </div>
     </div>
     <%= yield %>
