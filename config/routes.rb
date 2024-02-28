@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :profils, only: %i[show]
   resources :bookings, only: %i[index create]
 
-
   resources :flats, only: %i[index show] do
     resources :bookings, only: %i[create new]
   end

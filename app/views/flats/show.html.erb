@@ -15,7 +15,7 @@
     <h4>Hôte : <%= @flat.owner.firstname%> <%= @flat.owner.firstname%></h4>
     <br>
     <h4>Adresse : <%= @flat.address %></h4>
-    <%= button_to "retourner aux annonces", flats_path, class:"retro-button"%>
+    <%= link_to "retourner aux annonces", flats_path, class:"retro-button"%>
   </div>
     <div class="p-2 flex-shrink-1">
       <div class="row">
@@ -28,7 +28,7 @@
               </p>
               <p class="card-text">
                 <i class="fa-solid fa-star"></i>
-                <%= @flat.rating  %>
+                <%= @flat.rating %>
               </p>
               <%= simple_form_for [@flat, @booking] do |f| %>
               <%= f.input :start_date %>
