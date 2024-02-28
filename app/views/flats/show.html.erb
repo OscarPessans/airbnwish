@@ -1,5 +1,11 @@
 <h1>Show</h1>
-
+<ul>
+  <% @flat.photos.each do |photo| %>
+    <li>
+      <%= image_tag(photo, style: 'height:200px;width:auto;')%>
+    </li>
+  <% end %>
+</ul>
 <%= @flat.description %>
 <%= @flat.address %>
 <%= @flat.price %>
