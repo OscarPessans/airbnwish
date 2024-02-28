@@ -1,7 +1,13 @@
 <div class="container mt-2">
   <h1> <%= @flat.title %> </h1>
   <div class="row">
-   <%= image_tag "image-airbnwish/UsineDéserte.jpg", class: "mt-3"%>
+    <ul>
+    <% @flat.photos.each do |photo| %>
+      <li>
+        <%= image_tag(photo, style: 'height:200px;width:auto;')%>
+      </li>
+    <% end %>
+   </ul>
    <div class="spec">
     <%= @flat.description %>
     <ul>
@@ -19,3 +25,4 @@
       <%= link_to "retourner aux annonces", flats_path, class: "retro-button"%>
   </div>
 </div>
+
