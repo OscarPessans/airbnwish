@@ -1,13 +1,21 @@
-<h1>Show</h1>
-
-<%= @flat.description %>
-<%= @flat.address %>
-<%= @flat.price %>
-<%= @flat.size %>
-<%= @flat.available %>
-<%= @flat.rating %>
-
-
-<%= link_to "louer moi", new_flat_booking_path(@flat)%>
-<br>
-<%= link_to "retourner aux annonces", flats_path%>
+<div class="container mt-2">
+  <h1> <%= @flat.title %> </h1>
+  <div class="row">
+   <%= image_tag "image-airbnwish/UsineDéserte.jpg", class: "mt-3"%>
+   <div class="spec">
+    <%= @flat.description %>
+    <ul>
+    <li><%= @flat.address %></li>
+    <li><%= @flat.price %></li>
+    <li><%= @flat.size %></li>
+    <li><%= @flat.available %></li>
+    <li><%= @flat.rating %></li>
+    </ul>
+   </div>
+  </div>
+  <div class="row">
+      <%= link_to "louer moi", new_flat_booking_path(@flat), class: "retro-button"%>
+      <br>
+      <%= link_to "retourner aux annonces", flats_path, class: "retro-button"%>
+  </div>
+</div>

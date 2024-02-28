@@ -15,7 +15,6 @@
 # User.create!({ firstname: "Antoine", lastname: "Moreau", email: "antoine.moreau@email.com", phone: "555-4321", password: "123456" })
 # User.create!({ firstname: "Sophie", lastname: "Leroux", email: "sophie.leroux@email.com", phone: "555-8765", password: "123456" })
 
-
 # User.create!({
 #   firstname: "Antoine",
 #   lastname: "Dubois",
