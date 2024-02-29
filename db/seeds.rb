@@ -72,7 +72,7 @@ flat3 = Flat.new({ title: "Moulin à Vent Isolé - Douceur Ventilée à Louer!",
                    owner_id: users_ids[0] })
 
 file = File.open(Rails.root.join("app/assets/images/image airbnwish/moulin_a_vent_isole.jpg"))
-flat3.photos.attach(io: file, filename: "moulin_a_vent_isole.jpg", content_type: "image/png")
+flat3.photos.attach(io: file, filename: "moulin_a_vent_isole.jpg", content_type: "image/jpg")
 flat3.save
 
 flat4 = Flat.new({ title: "Train Abandonné - Voyage Temporel à Louer!",
@@ -295,4 +295,3 @@ flat20 = Flat.new({ title: "Ancien Asile Psychiatrique - Résidence Insolite!",
 file = File.open(Rails.root.join("app/assets/images/image airbnwish/asile.png"))
 flat20.photos.attach(io: file, filename: "asile.png", content_type: "image/png")
 flat20.save
-
