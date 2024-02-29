@@ -314,6 +314,6 @@ flats = antoine.flats
 flats.each do |flat|
   book = Booking.new
   book.flat = flat
-  book.visitor = User.firstname
+  book.visitor = User.first
   book.save
 end
