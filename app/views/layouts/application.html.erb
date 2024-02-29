@@ -16,7 +16,7 @@
       <%= link_to image_tag("logo_airbnwish.png", style:"height :75px"), root_path %>
       <div class="action-navbar">
         <% if user_signed_in? %>
-          <%= link_to "Mets en ligne ton taudis !!!", new_owner_flat_path%>
+          <%= link_to "Mets en ligne ton taudis =)", new_owner_flat_path, class: "raimbow-btn"%>
           <%= link_to "Profil", profil_path(current_user.id) %>
         <% else %>
           <%= link_to "Sign in", new_user_session_path %>
