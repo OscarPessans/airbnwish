@@ -35,7 +35,6 @@ users.each do |user|
   users_ids << user.id
 end
 
-
 flat1 = Flat.new({ title: "Grange Rustique - Havre Champêtre au Cœur de la Nature!",
                    description: "🚜 Annonce Location Grange Rustique! Découvrez notre 'Havre Champêtre' au charme authentique. Ambiance campagnarde garantie avec paille et éclairage tamisé. Profitez de l'authenticité des murs en bois brut et des résidents à quatre pattes inclus. Parfait pour les amoureux de la nature et les aventuriers ruraux. Loyer modique, car la simplicité n'a pas de prix! Contactez-nous vite avant que cette perle champêtre ne disparaisse dans les collines. Bottes en caoutchouc fortement recommandées, esprit bucolique bienvenu!",
                    address: "15 Chemin de la Grange, 31000 Toulouse",
@@ -295,4 +294,3 @@ flat20 = Flat.new({ title: "Ancien Asile Psychiatrique - Résidence Insolite!",
 file = File.open(Rails.root.join("app/assets/images/image airbnwish/asile.png"))
 flat20.photos.attach(io: file, filename: "asile.png", content_type: "image/png")
 flat20.save
-
