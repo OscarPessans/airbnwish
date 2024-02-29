@@ -12,7 +12,8 @@
   <div class="details-show">
   <div class="informations-show" >
     <div class="p-2 w-100"><%= @flat.description %></div>
-    <h4>Hôte : <%= @flat.owner.firstname%> <%= @flat.owner.firstname%></h4>
+    <h4>Hôte : <%= @flat.owner.firstname%> <%= @flat.owner.lastname%></h4>
+    <%= cl_image_tag(@flat.owner.photo.key, style: 'height:200px;width:auto;')%>
     <br>
     <h4>Adresse : <%= @flat.address %></h4>
     <%= link_to "retourner aux annonces", flats_path, class:"retro-button"%>
@@ -30,11 +31,25 @@
                 <i class="fa-solid fa-star"></i>
                 <%= @flat.rating %>
               </p>
-              <%= simple_form_for [@flat, @booking] do |f| %>
-              <%= f.input :start_date %>
-              <%= f.input :end_date %>
-              <%= f.submit class: "btn btn-primary" %>
+              <% if @flat.owner != current_user%>
+                <% if @flat.booking %>
+                  <% if @flat.booking.status == "pending" %>
+                    <p>en train d'etre loué</p>
+                  <% elsif @flat.booking.status == "valid" %>
+                    <p>il est déja loué</p>
+                  <% end %>
+                <% else %>
+                  <%= render "form", flat: @flat, booking: @booking %>
+                <% end %>
+              <% elsif @flat.owner == current_user %>
+                <% if @flat.booking %>
+                  <% if @flat.booking.status == "pending" %>
+                  <% elsif @flat.booking.status == "valid" %>
+                    <p>en location</p>
+                  <% end %>
+                <% end %>
               <% end %>
+            </div>
             </div>
           </div>
         </div>

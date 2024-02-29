@@ -10,22 +10,34 @@
 
 # Seed of users
 
+Booking.destroy_all
 Flat.destroy_all
 User.destroy_all
 
+
 emma = User.new({ firstname: "Emma", lastname: "Dupont", email: "emma.dupont@email.com", phone: "555-1234", password: "123456" })
+file = File.open(Rails.root.join("app/assets/images/user/emma.png"))
+emma.photo.attach(io: file, filename: "emma.png", content_type: "image/png")
 emma.save
 
 alexandre = User.new({ firstname: "Alexandre", lastname: "Lambert", email: "alex.lambert@email.com", phone: "555-5678", password: "123456" })
+file = File.open(Rails.root.join("app/assets/images/user/alexandre.jpeg"))
+alexandre.photo.attach(io: file, filename: "alexandre.jpeg", content_type: "image/jpeg")
 alexandre.save
 
 laura = User.new({ firstname: "Laura", lastname: "Martin", email: "laura.martin@email.com", phone: "555-9876", password: "123456" })
+file = File.open(Rails.root.join("app/assets/images/user/laura.jpg"))
+laura.photo.attach(io: file, filename: "laura.jpg", content_type: "image/jpg")
 laura.save
 
 antoine = User.new({ firstname: "Antoine", lastname: "Moreau", email: "antoine.moreau@email.com", phone: "555-4321", password: "123456" })
+file = File.open(Rails.root.join("app/assets/images/user/antoine.jpeg"))
+antoine.photo.attach(io: file, filename: "antoine.jpeg", content_type: "image/jpeg")
 antoine.save
 
 sophie = User.new({ firstname: "Sophie", lastname: "Leroux", email: "sophie.leroux@email.com", phone: "555-8765", password: "123456" })
+file = File.open(Rails.root.join("app/assets/images/user/sophie.jpg"))
+sophie.photo.attach(io: file, filename: "sophie.jpg", content_type: "image/png")
 sophie.save
 
 users = User.all
@@ -294,3 +306,14 @@ flat20 = Flat.new({ title: "Ancien Asile Psychiatrique - Résidence Insolite!",
 file = File.open(Rails.root.join("app/assets/images/image airbnwish/asile.png"))
 flat20.photos.attach(io: file, filename: "asile.png", content_type: "image/png")
 flat20.save
+
+flats = antoine.flats
+
+flats = antoine.flats
+
+flats.each do |flat|
+  book = Booking.new
+  book.flat = flat
+  book.visitor = User.first
+  book.save
+end

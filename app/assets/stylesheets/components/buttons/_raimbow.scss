@@ -1,0 +1,16 @@
+.raimbow-btn {
+  margin-right: 20px;
+  color: $white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+  background-size: 250% 100%; /* Ajout d'une taille plus grande pour permettre l'animation */
+  transition: color 0.3s ease, background-position 0.5s ease;
+  cursor: url("cursor/corentin1.png"), pointer;
+}
+
+.raimbow-btn:hover {
+  background-position: 100% 0;
+  cursor: url("cursor/corentin1.cur"), default;
+}

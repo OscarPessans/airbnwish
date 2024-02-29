@@ -1,5 +1,4 @@
 class Owner::FlatsController < ApplicationController
-
   def new
     @flat = Flat.new
   end
@@ -19,5 +18,4 @@ class Owner::FlatsController < ApplicationController
   def flat_params
     params.require(:flat).permit(:description, :address, :price, :size)
   end
-
 end

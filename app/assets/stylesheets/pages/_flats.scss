@@ -1,0 +1,36 @@
+.main-title {
+  text-align: center;
+  color: white;
+  background-image: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red); /* Dégradé en ligne pour l'arc-en-ciel */
+}
+
+.page-index {
+  background-image: url("background/background4");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.card .price {
+  font-size: 24px; /* Taille de police plus grande */
+  font-weight: bold; /* Texte en gras */
+  padding: 5px 10px; /* Ajout de rembourrage pour créer l'effet d'étiquette */
+  border: 2px solid; /* Bordure autour du prix */
+  background-image: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red); /* Dégradé en ligne pour l'arc-en-ciel */
+  border-radius: 10px; /* Coins arrondis */
+  color: transparent; /* Rend le texte transparent pour montrer le dégradé en arrière-plan */
+  -webkit-background-clip: text; /* Applique le dégradé seulement à la zone du texte pour un effet d'arc-en-ciel */
+  background-clip: text;
+}
+
+// .card .price {
+//   font-size: 24px; /* Taille de police plus grande */
+//   font-weight: bold; /* Texte en gras */
+//   color: #ff00ff; /* Couleur de texte rose (par exemple) pour l'effet ringard */
+//   padding: 5px 10px; /* Ajout de rembourrage pour créer l'effet d'étiquette */
+//   border: 2px solid #ff00ff; /* Bordure autour du prix */
+//   background-color: #ffccff; /* Couleur de fond pour l'effet d'étiquette */
+//   border-radius: 10px; /* Coins arrondis */
+//   display: inline-block; /* Pour s'assurer que la bordure s'adapte au contenu */
+// }

@@ -1,0 +1,18 @@
+.retro-button {
+  background-color: $blue;
+  border: 2px solid $green;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Comic Sans MS', cursive;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-inline: auto;
+}
+
+.retro-button:hover {
+  background-color: $green;
+  color: $blue;
+  cursor: url("cursor/corentin1"), auto;
+}

@@ -1,11 +1,13 @@
-<h1 class="text-center">Un max de taudis dans ta région !!</h1>
+<div class="page-index">
+  <h1 class="main-title">🕺🏼 Un max de taudis dans ta région !! 🕺🏼</h1>
 
-<div class="container mosaique">
-  <div class="col p-3">
-    <div class="row mb-3 mt-3">
-      <% @flats.each do |flat| %>
-          <%= render "card", flat: flat %>
-      <% end %>
+  <div class="container mosaique">
+    <div class="col p-3">
+      <div class="row mb-3 mt-3">
+        <% @flats.each do |flat| %>
+            <%= render "card", flat: flat %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

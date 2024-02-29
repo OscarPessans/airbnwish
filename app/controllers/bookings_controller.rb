@@ -11,9 +11,14 @@ class BookingsController < ApplicationController
     @booking.flat = @flat
     @booking.visitor = @user
     if @booking.save
+      @flat.available = false
+      @flat.booking = @booking
+      @flat.save
       redirect_to profil_path(@user)
     else
       render :new, status: :unprocessable_entity
     end
   end
+
+
 end
