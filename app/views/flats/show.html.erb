@@ -31,21 +31,25 @@
                 <i class="fa-solid fa-star"></i>
                 <%= @flat.rating %>
               </p>
-              <% if @flat.owner != current_user && @flat.available == true %>
-                <%= simple_form_for [@flat, @booking] do |f| %>
-                <%= f.input :start_date %>
-                <%= f.input :end_date %>
-                <%= f.submit class: "btn btn-primary" %>
+              <% if @flat.owner != current_user%>
+                <% if @flat.booking %>
+                  <% if @flat.booking.status == "pending" %>
+                    <p>en train d'etre loué</p>
+                  <% elsif @flat.booking.status == "valid" %>
+                    <p>il est déja loué</p>
+                  <% end %>
+                <% else %>
+                  <%= render "form", flat: @flat, booking: @booking %>
+                <% end %>
+              <% elsif @flat.owner == current_user %>
+                <% if @flat.booking %>
+                  <% if @flat.booking.status == "pending" %>
+                  <% elsif @flat.booking.status == "valid" %>
+                    <p>en location</p>
+                  <% end %>
                 <% end %>
               <% end %>
             </div>
-            <div class="disponible">
-                <% if @flat.available %>
-                  <p>disponible à la location</p>
-                <% else %>
-                  <p>loué par</p>
-                  <%= @flat.booking.visitor.firstname  %> <%= @flat.booking.visitor.lastname %>
-                <% end %>
             </div>
           </div>
         </div>

@@ -306,3 +306,14 @@ flat20 = Flat.new({ title: "Ancien Asile Psychiatrique - Résidence Insolite!",
 file = File.open(Rails.root.join("app/assets/images/image airbnwish/asile.png"))
 flat20.photos.attach(io: file, filename: "asile.png", content_type: "image/png")
 flat20.save
+
+flats = antoine.flats
+
+flats = antoine.flats
+
+flats.each do |flat|
+  book = Booking.new
+  book.flat = flat
+  book.visitor = User.firstname
+  book.save
+end
