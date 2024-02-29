@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   namespace :owner do
     resources :flats, only: %i[create new]
-    resources :bookings
+    resources :bookings do
+      patch 'decline'
+      patch 'accept'
+    end
   end
 end
