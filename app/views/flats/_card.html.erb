@@ -1,5 +1,7 @@
 <div class="card m-3 p-2" style="width: 18rem;">
-  <%= cl_image_tag(flat.photos.first.key) %>
+  <% unless flat.photos.empty? %>
+    <%= cl_image_tag(flat.photos.first.key) %>
+  <% end %>
   <div class="card-body">
     <h5 class="card-title"> <%= flat.title %> </h5>
     <p class="card-text"><%= flat.address %></p>

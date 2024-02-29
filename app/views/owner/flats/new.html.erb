@@ -3,5 +3,6 @@
   <%= f.input :address %>
   <%= f.input :price %>
   <%= f.input :size %>
+  <%= f.input :photo, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
 <% end %>

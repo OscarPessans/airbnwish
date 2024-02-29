@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-
-.retro-button {
-  background-color: $orange;
-  border: 2px solid $green;
-  color: #ffffff;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-family: 'Comic Sans MS', cursive;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  width: 260px;
-  margin: 0 auto;
-}
-
-.retro-button:hover {
-  background-color: $green;
-  color: $orange;
-}
-
-
 .home-background {
   background-image: url("background/background2.png") ;
   background-size: cover;
@@ -30,10 +7,10 @@
   position:absolute;
   z-index: -1000;
   opacity: 40%;
-=======
+}
+
 .image_de_taudis {
 text-align: center;
->>>>>>> ad480df4a9f11b03fcde889683a4f72f9c27cb40
 }
 
 .carroussel-home {
@@ -92,5 +69,3 @@ text-align: center;
 .retro-button{
   margin-top: 10px;
 }
-
-

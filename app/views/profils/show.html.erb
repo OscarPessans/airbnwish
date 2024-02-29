@@ -18,7 +18,9 @@
       <% @user.flats.each do |flat| %>
         <li>
           <div class="card-product">
-            <%= cl_image_tag(flat.photos.first.key, :alt=>"photo de taudis")%>
+            <% unless flat.photos.empty? %>
+              <%= cl_image_tag(flat.photos.first.key, :alt=>"photo de taudis")%>
+            <% end %>
             <div class="card-product-infos">
               <h2><%= flat.title %></h2>
               <p><strong><%= flat.price %></strong>€ - <%= flat.size %> personnes - Moyenne des avis :<%= flat.rating %>/5</p>
