@@ -4,7 +4,7 @@
     <ul>
     <% @flat.photos.each do |photo| %>
       <li>
-        <%= image_tag(photo, style: 'height:200px;width:auto;')%>
+        <%= cl_image_tag(photo, style: 'height:200px;width:auto;')%>
       </li>
     <% end %>
    </ul>
