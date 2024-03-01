@@ -117,9 +117,11 @@
 }
 
 .arrow {
-  width: 50px;
-  height: 20px;
+  width: 80px;
+  height: 30px;
   display: flex;
+  margin-right: 10px;
+  // border: 1px black solid;
 }
 .arrow:before {
   content: "";
