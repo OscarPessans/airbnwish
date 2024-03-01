@@ -1,21 +1,41 @@
-<div class= "container">
+<div class="show-background"></div>
+
+<div class="container">
   <div class="banner-show">
     <h1><%=@flat.title%></h1>
-    <ul>
-    <% @flat.photos.each do |photo| %>
-      <li>
-        <%= cl_image_tag(photo.key, style: 'height:200px;width:auto;')%>
-      </li>
-    <% end %>
-   </ul>
+      <ul>
+      <% @flat.photos.each do |photo| %>
+        <li>
+        <div class="gif-show">
+          <div class="arrow-image">
+            <%= cl_image_tag(photo.key, style: 'height:500px;width:auto;margin-top:20px;')%>
+            <div class="loader"></div>
+            <div class="loader"></div>
+          </div>
+          <%= image_tag("https://media.giphy.com/media/yXtmWJ3eNj2BJsuuPp/giphy.gif", style: "height:200px;width:auto") %>
+        </div>
+        </li>
+      <% end %>
+      </ul>
   </div>
   <div class="details-show">
   <div class="informations-show" >
-    <div class="p-2 w-100"><%= @flat.description %></div>
-    <h4>Hôte : <%= @flat.owner.firstname%> <%= @flat.owner.lastname%></h4>
-    <%= cl_image_tag(@flat.owner.photo.key, style: 'height:200px;width:auto;')%>
-    <br>
-    <h4>Adresse : <%= @flat.address %></h4>
+    <div class="text-description">
+      <h5><%= @flat.description %></h5>
+    </div>
+      <br>
+    <div class="owner-container">
+      <h4><%= @flat.owner.firstname%> <%= @flat.owner.lastname%></h4>
+      <%= cl_image_tag(@flat.owner.photo.key, class: "owner-photo") %>
+    </div>
+      <br>
+      <br>
+    <div class="adress-container">
+      <i class="fa-solid fa-map-pin map"></i>
+      <h4><%= @flat.address %></h4>
+    </div>
+      <br>
+      <br>
     <%= link_to "retourner aux annonces", flats_path, class:"retro-button"%>
   </div>
     <div class="p-2 flex-shrink-1">
@@ -54,5 +74,4 @@
           </div>
         </div>
       </div>
-    </div>
 </div>
