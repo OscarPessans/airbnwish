@@ -14,7 +14,6 @@ Booking.destroy_all
 Flat.destroy_all
 User.destroy_all
 
-
 emma = User.new({ firstname: "Emma", lastname: "Dupont", email: "emma.dupont@email.com", phone: "555-1234", password: "123456" })
 file = File.open(Rails.root.join("app/assets/images/user/emma.png"))
 emma.photo.attach(io: file, filename: "emma.png", content_type: "image/png")

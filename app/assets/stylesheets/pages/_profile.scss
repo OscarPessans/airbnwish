@@ -47,3 +47,87 @@
   align-items: center;
   text-align: center;
 }
+
+.profile_page {
+  background-image: url('background/background1');
+}
+
+.card-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.statut-libre {
+  font-size: 35px; /* Taille de police plus grande */
+  font-weight: bold; /* Texte en gras */
+  background-image: linear-gradient(90deg, rgb(190, 249, 193), rgb(133, 243, 138), rgb(83, 241, 133), rgb(27, 244, 27), rgb(4, 166, 42), rgb(9, 117, 6), rgb(2, 74, 10));
+  color: transparent; /* Rend le texte transparent pour montrer le dégradé en arrière-plan */
+  -webkit-background-clip: text; /* Applique le dégradé seulement à la zone du texte pour un effet d'arc-en-ciel */
+  background-clip: text;
+  display: flex;
+  border: 2px solid $green;
+  padding: 3px;
+}
+.statut-reserve {
+  font-size: 35px; /* Taille de police plus grande */
+  font-weight: bold; /* Texte en gras */
+  background-image: linear-gradient(90deg, rgb(242, 144, 144), rgb(239, 98, 98), rgb(244, 46, 46), rgb(244, 27, 27), rgb(166, 4, 4), rgb(117, 6, 6), rgb(74, 2, 2));
+  color: transparent; /* Rend le texte transparent pour montrer le dégradé en arrière-plan */
+  -webkit-background-clip: text; /* Applique le dégradé seulement à la zone du texte pour un effet d'arc-en-ciel */
+  background-clip: text;
+  display: flex;
+  border: 2px solid $red;
+  padding: 3px;
+}
+
+.appart_list h1 {
+  color: white;
+  background-color: blue;
+  border-color: $green;
+  margin-top: 20px;
+}
+
+.bookings_list h1 {
+  color: white;
+  background-color: blue;
+  border-color: $green;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+.loader {
+  font-weight: bold;
+  font-size: 40px;
+  display: flex;
+}
+.loader::before {
+  content:"Ton pr";
+  animation: l27 2s infinite;
+}
+.loader::after {
+  content:"ofil";
+  animation: l27 2s infinite 1s;
+}
+
+@keyframes l27{
+   50%,100%{transform:rotate(1turn)}
+}
+
+.arrow {
+  width: 50px;
+  height: 20px;
+  display: flex;
+}
+.arrow:before {
+  content: "";
+  background: #000000;
+  width: 15px;
+  clip-path: polygon(0 10px,calc(100% - 15px) 10px,calc(100% - 15px) 0,100% 50%,calc(100% - 15px) 100%,calc(100% - 15px) calc(100% - 10px),0 calc(100% - 10px));
+  animation: l1 1.5s infinite linear;
+}
+@keyframes l1 {
+  90%,100%{flex-grow: 1}
+}

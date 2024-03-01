@@ -14,13 +14,15 @@
   <body>
   <% unless current_page?(root_path) %>
     <div class="navbar border-bottom px-20">
-      <%= link_to image_tag("logo_airbnwish.png", style:"height :75px"), root_path %>
+      <%= link_to image_tag("logo_airbnwish.png", style:"height :75px"), flats_path %>
       <div class="action-navbar">
         <% if user_signed_in? %>
           <%= link_to "Mets en ligne ton taudis =)", new_owner_flat_path, class: "raimbow-btn"%>
-          <%= link_to "Profil", profil_path(current_user.id) %>
+          <%= link_to profil_path(current_user.id) do %>
+            <%= cl_image_tag(current_user.photo.key, style: 'width: 50px;border-radius: 60%;box-shadow: 0 1px 2px rgba(0,0,0,0.2);')%>
+          <% end %>
         <% else %>
-          <%= link_to "Sign in", new_user_session_path %>
+          <%= link_to "Sign in", new_user_session_path%>
         <% end %>
       </div>
     </div>
