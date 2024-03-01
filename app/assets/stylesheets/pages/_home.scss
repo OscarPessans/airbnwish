@@ -1,16 +1,20 @@
+body {
+  height: 100vh;
+}
+
 .home-background {
-  background-image: url("background/background2.png") ;
+  background-image: url("background/background2.png");
   background-size: cover;
   background-position: center;
   width: 100%;
-  height : 950px;
-  position:absolute;
+  height: 100%;
+  position: absolute;
   z-index: -1000;
   opacity: 40%;
 }
 
 .image_de_taudis {
-text-align: center;
+  text-align: center;
 }
 
 .carroussel-home {
@@ -21,40 +25,23 @@ text-align: center;
 }
 
 .head-sentence {
-  0% {
-    color: #ff0000; /* Rouge */
-  }
-  20% {
-    color: #ff7f00; /* Orange */
-  }
-  40% {
-    color: #ffff00; /* Jaune */
-  }
-  60% {
-    color: #00ff00; /* Vert */
-  }
-  80% {
-    color: #0000ff; /* Bleu */
-  }
-  100% {
-    color: #8a2be2; /* Violet */
-
-  }
-
-}
-.head-sentence {
   animation: rainbow 5s infinite alternate; /* Animation de l'effet arc-en-ciel */
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff7f00, 0 0 70px #ff7f00, 0 0 80px #ff7f00, 0 0 90px #ffff00;
 }
 
-.carousel-item, .image-home, .carousel-inner {
-  height:70vh;
+.carousel-container {
+  box-shadow: 0px 0px 9px 0px #573f13;
+}
+
+.carousel-item,
+.image-home,
+.carousel-inner {
+  height: 70vh;
   width: 100%;
 }
 
 .carousel {
-  width :60%
-
+  width: 60%;
 }
 .carroussel-home {
   display: flex;
@@ -66,6 +53,6 @@ text-align: center;
   object-fit: cover;
 }
 
-.retro-button{
+.retro-button {
   margin-top: 10px;
 }
