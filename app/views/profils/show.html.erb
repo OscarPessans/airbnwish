@@ -1,73 +1,85 @@
-<div class="profile_page container">
-  <h1 class="mt-3 mb-5 container text-center w-50">Ton profil</h1>
-  <div class="container w-50">
-  <div class="profile_image mt-4 mb-4">
-    <%= cl_image_tag(@user.photo.key, style: 'height:200px;width:auto;', :alt=>"photo de profil")%>
+<div class="profile_page">
+  <div class="container">
+  <div class="card-profile">
+    <div class="bg-white w-50 mt-3">
+      <h1 class="mt-3 mb-5 container w-50 loader"></h1>
+      <div class="container w-50">
+        <div class="profile_image mt-4 mb-4 d-flex justify-content-center">
+          <%= cl_image_tag(@user.photo.key, style: 'height:200px;width:200px;object-fit:cover;border-radius:50%', :alt=>"photo de profil")%>
+        </div>
+        <div class="infos-user mt-4 mb-4">
+          <ul class="list-profile w-100 p-0">
+            <li><%= @user.firstname %> <%= @user.lastname %></li>
+            <li><%= @user.email %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-    <div class="infos-user mt-4 mb-4">
-      <ul class="list-profile w-100 p-0">
-        <li><%= @user.firstname %></li>
-        <li><%= @user.lastname %></li>
-        <li><%= @user.email %></li>
+    <div class="mt-3 p-2 appart_list">
+      <h1 class= "text-center">Mes appartements en ligne</h1>
+      <ul>
+        <% @user.flats.each do |flat| %>
+          <li>
+            <div class="card-product">
+              <% unless flat.photos.empty? %>
+                <%= cl_image_tag(flat.photos.first.key, :alt=>"photo de taudis")%>
+              <% end %>
+              <div class="card-product-infos">
+              <div class="title-book d-flex align-items-center">
+                  <div class="arrow"></div>
+                  <h2><%= flat.title %></h2>
+                </div>
+                <p><strong><%= flat.price %></strong>€ - <%= flat.size %> personnes - Moyenne des avis :<%= flat.rating %>/5</p>
+              </div>
+              <div class="reservation-card d-flex flex-fill">
+                <div class="reservation-action"></div>
+                <% if flat.booking && flat.booking.status == "pending" %>
+                  <p>Valider la réservation ?</p>
+                  <div class="button d-flex flex-fill justify-content-center gap-2">
+                    <%= button_to "☑️", owner_booking_accept_path(flat.booking), :method => :patch %>
+                    <%= button_to "❌", owner_booking_decline_path(flat.booking), :method => :patch %>
+                  </div>
+                <% elsif flat.booking && flat.booking.status == "valid" %>
+                  <p class="statut-reserve">Reservé</p>
+                <% else %>
+                  <p class="statut-libre">Libre</p>
+                <% end %>
+              </div>
+            </div>
+              <%= link_to "voir mon taudis", flat_path(flat), class: "retro-button" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="p-2 bookings_list">
+    <h1>Mes réservations</h1>
+      <ul>
+        <% @user.bookings.each do |booking| %>
+          <li>
+            <div class="card-product">
+              <%= cl_image_tag(booking.flat.photos.first.key, :alt=>"photo de taudis")%>
+              <div class="card-product-infos">
+                <div class="title-book d-flex align-items-center">
+                  <div class="arrow"></div>
+                  <h2><%= booking.flat.title %></h2>
+                </div>
+                <p>Réservation n°<strong><%= booking.flat_id %></strong></p>
+                <% case booking.status %>
+                <% when "pending" %>
+                  <p>En attente de validation</p>
+                <% when "valid" %>
+                  <p>Validé!</p>
+                <% when "declined" %>
+                  <p>Refusé</p>
+                <% end %>
+              </div>
+            </div>
+            <%= link_to "voir le taudis", flat_path(booking.flat), class: "retro-button" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
-  <div class="mt-3 appart_list">
-    <h1>Mes appartements en ligne</h1>
-    <ul>
-      <% @user.flats.each do |flat| %>
-        <li>
-          <div class="card-product">
-            <% unless flat.photos.empty? %>
-              <%= cl_image_tag(flat.photos.first.key, :alt=>"photo de taudis")%>
-            <% end %>
-            <div class="card-product-infos">
-              <h2><%= flat.title %></h2>
-              <p><strong><%= flat.price %></strong>€ - <%= flat.size %> personnes - Moyenne des avis :<%= flat.rating %>/5</p>
-            </div>
-            <div class="reservation-card d-flex flex-fill">
-              <div class="reservation-action"></div>
-              <% if flat.booking && flat.booking.status == "pending" %>
-                <p>valider la réservation?</p>
-                <div class="button d-flex flex-fill justify-content-center gap-2">
-                  <%= button_to "y", owner_booking_accept_path(flat.booking), :method => :patch %>
-                  <%= button_to "x", owner_booking_decline_path(flat.booking), :method => :patch %>
-                </div>
-              <% elsif flat.booking && flat.booking.status == "valid" %>
-                <p>reservé</p>
-              <% else %>
-                <p>libre</p>
-              <% end %>
-            </div>
-          </div>
-            <%= link_to "voir mon taudis", flat_path(flat) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-
-  <h1>Mes réservations</h1>
-  <div class="bookings_list">
-    <ul>
-      <% @user.bookings.each do |booking| %>
-        <li>
-          <div class="card-product">
-            <%= cl_image_tag(booking.flat.photos.first.key, :alt=>"photo de taudis")%>
-            <div class="card-product-infos">
-              <h2><%= booking.flat.title %></h2>
-              <p>Réservation n°<strong><%= booking.flat_id %></strong></p>
-              <% case booking.status %>
-              <% when "pending" %>
-                <p>en attente de validation</p>
-              <% when "valid" %>
-                <p>validé!</p>
-              <% when "declined" %>
-                <p>refusé</p>
-              <% end %>
-            </div>
-          </div>
-          <%= link_to "voir le taudis", flat_path(booking.flat) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+</div>
