@@ -1,0 +1,15 @@
+.font-creation {
+  background-image: url("background/background3.png");
+}
+
+.form-overlay {
+  background-color: rgba(255, 255, 255, 1);
+  padding: 10px;
+}
+
+.font-creation h1 {
+  color: white;
+  background-color: blue;
+  border-color: $green;
+  margin-top: 20px;
+}

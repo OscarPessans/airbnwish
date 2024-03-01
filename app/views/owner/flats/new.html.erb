@@ -1,9 +1,14 @@
-<%= simple_form_for([:owner, @flat]) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.input :price %>
-  <%= f.input :size %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+<div class="font-creation">
+  <div class="container w-50">
+    <h1 class="text-center m-4">Publie ton super taudis 🤣</h1>
+    <%= simple_form_for([:owner, @flat], html: { class: "form-overlay" }) do |f| %>
+      <%= f.input :title, label: "Titre de l'annonce" %>
+      <%= f.input :description, label: "Description" %>
+      <%= f.input :address, label: "Adresse" %>
+      <%= f.input :price, label: "Prix" %>
+      <%= f.input :size, label: "Place disponible" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit "Publie-moi cette horreur 😆", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
