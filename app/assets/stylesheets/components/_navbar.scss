@@ -1,9 +1,12 @@
-.navbar{
+.navbar {
   display: flex;
   background: $white;
   padding-inline: 30px;
   align-items: center;
   padding-block: 0px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .navbar a {
