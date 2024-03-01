@@ -1,5 +1,5 @@
  <%= simple_form_for [flat, booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit class: "btn btn-primary" %>
+  <%= f.input :start_date, label: "Arrivée" %>
+  <%= f.input :end_date, label: "Départ" %>
+  <%= f.submit "Reéservez !!!", class: "btn btn-primary"%>
 <% end %>
