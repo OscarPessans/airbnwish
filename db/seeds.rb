@@ -308,11 +308,15 @@ flat20.save
 
 flats = antoine.flats
 
-flats = antoine.flats
-
 flats.each do |flat|
   book = Booking.new
   book.flat = flat
   book.visitor = User.first
   book.save
 end
+
+reserved = Booking.new
+reserved.visitor = antoine
+reserved.flat = User.first.flats.first
+reserved.status = "valid"
+reserved.save
